@@ -1,0 +1,1 @@
+Copy your ssh key here and set its permissions to 0600

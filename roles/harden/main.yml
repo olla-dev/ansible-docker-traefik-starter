@@ -1,0 +1,6 @@
+---
+- name: harden os
+  collections:
+    - devsec.hardening
+  roles:
+    - devsec.hardening.os_hardening

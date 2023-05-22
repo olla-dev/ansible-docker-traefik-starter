@@ -1,0 +1,21 @@
+---
+- name: Provision Server
+  hosts: playground
+  user: root
+  vars_prompt:
+    - name: hostname
+      prompt: "Enter the root domain name for your server"
+      private: no
+      default: <changeme>
+    - name: le_email
+      prompt: "Enter the Let's Encrypt contact email"
+      private: no
+      default: <changeme>
+  vars:
+    public_key: ./ssh/<changeme>
+  roles:
+    - user
+    - docker
+    - traefik
+    - portainer
+    - homer

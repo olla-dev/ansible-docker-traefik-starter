@@ -1,0 +1,3 @@
+**/ssh/*.ppk
+**/ssh/*.pub
+*/ansible_collections

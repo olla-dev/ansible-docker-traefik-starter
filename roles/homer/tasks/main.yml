@@ -1,0 +1,31 @@
+---
+- name: Ensure /opt/homer exists
+  file: 
+    path: /opt/homer
+    state: directory    
+    owner: ansible
+    group: docker
+    
+- name: Ensure /opt/homer/assets exists
+  file: 
+    path: /opt/homer/assets
+    state: directory 
+    owner: ansible
+    group: docker
+
+- name: Template docker-compose
+  template:
+    src: docker-compose.yml
+    dest: /opt/homer/docker-compose.yml
+
+- name: Tear down existing services
+  docker_compose:
+    project_src: /opt/homer
+    state: absent
+    remove_orphans: yes
+
+- name: Create and start services
+  docker_compose:
+    pull: yes
+    project_src: /opt/homer
+    remove_orphans: yes
