@@ -4,6 +4,7 @@ This includes DevSec's OS hardening playbooks (it will make a lot of changes to 
 ## Services
 * Portainer 
 * Homer
+* Traefik (Proxy, Let's Encrypt based SSL certificates)
 
 ## Requirements
 * Install ansible
